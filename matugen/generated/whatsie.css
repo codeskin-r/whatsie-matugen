@@ -1,0 +1,389 @@
+/*
+* Whatsie (WhatsApp Web) Colors
+* Generated with Matugen
+* Injected into web.whatsapp.com by Whatsie (updatePageTheme)
+*
+* WhatsApp Web v27.x themes itself via two systems:
+*   1. WDS tokens (--WDS-*)  -> dark palette class on <html> (e.g. .x1umy8rd)
+*   2. App tokens (--panel-*, --text-*, --background-*) -> defined under .dark
+ * We override BOTH on :root/.dark with !important so matugen always wins.
+ */
+
+/* Mr. Robot-style title font (fallback: local condensed sans) */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400;500&display=swap');
+
+
+:root,
+html,
+.dark,
+[data-theme="dark"],
+[data-color-mode="dark"] {
+  /* ── Material You palette ───────────────────────────────────────────── */
+  --mt-primary: #265823 !important;
+  --mt-on-primary: #ffffff !important;
+  --mt-primary-container: #74a96b !important;
+  --mt-on-primary-container: #000000 !important;
+  --mt-primary-fixed: #4e8047 !important;
+  --mt-secondary: #694152 !important;
+  --mt-on-secondary: #ffffff !important;
+  --mt-secondary-container: #bf8ea1 !important;
+  --mt-on-secondary-container: #000000 !important;
+  --mt-tertiary: #434a79 !important;
+  --mt-on-tertiary: #ffffff !important;
+  --mt-tertiary-container: #9299cd !important;
+  --mt-on-tertiary-container: #000000 !important;
+  --mt-error: #9f000c !important;
+  --mt-on-error: #ffffff !important;
+  --mt-error-container: #ff6d60 !important;
+  --mt-on-error-container: #000000 !important;
+  --mt-background: #fbf8ff !important;
+  --mt-on-background: #1a1b23 !important;
+  --mt-surface: #fbf8ff !important;
+  --mt-on-surface: #1a1b23 !important;
+  --mt-surface-dim: #d2d1dc !important;
+  --mt-surface-bright: #fbf8ff !important;
+  --mt-surface-container-lowest: #ffffff !important;
+  --mt-surface-container-low: #f4f2fd !important;
+  --mt-surface-container: #eceaf5 !important;
+  --mt-surface-container-high: #e4e2ed !important;
+  --mt-surface-container-highest: #dcdae5 !important;
+  --mt-surface-variant: #e1e1f3 !important;
+  --mt-on-surface-variant: #454654 !important;
+  --mt-outline: #676877 !important;
+  --mt-outline-variant: #9a9aab !important;
+  --mt-scrim: #000000 !important;
+
+  /* RGB triplets (WA consumes them as rgb(var(--x-RGB))) */
+  --mt-primary-rgb: 38, 88, 35 !important;
+  --mt-on-primary-rgb: 255, 255, 255 !important;
+  --mt-on-surface-rgb: 26, 27, 35 !important;
+  --mt-on-surface-variant-rgb: 69, 70, 84 !important;
+  --mt-tertiary-rgb: 67, 74, 121 !important;
+  --mt-background-rgb: 251, 248, 255 !important;
+  --mt-surface-dim-rgb: 210, 209, 220 !important;
+  --mt-surface-container-high-rgb: 228, 226, 237 !important;
+  --mt-secondary-container-rgb: 191, 142, 161 !important;
+  --mt-surface-variant-rgb: 225, 225, 243 !important;
+  --mt-tertiary-container-rgb: 146, 153, 205 !important;
+  --mt-primary-container-rgb: 116, 169, 107 !important;
+  --mt-error-rgb: 159, 0, 12 !important;
+  --mt-on-error-rgb: 255, 255, 255 !important;
+  --mt-error-container-rgb: 255, 109, 96 !important;
+  --mt-surface-bright-rgb: 251, 248, 255 !important;
+  --mt-outline-rgb: 103, 104, 119 !important;
+  --mt-on-primary-container-rgb: 0, 0, 0 !important;
+
+  /* ── Fondo base: tinte suave de matugen sobre el fondo oscuro ───────── */
+  --mt-soft-bg: color-mix(in srgb, var(--mt-primary-container) 18%, var(--mt-surface-dim)) !important;
+  --mt-soft-bg-2: color-mix(in srgb, var(--mt-primary-container) 28%, var(--mt-surface-dim)) !important;
+  --mt-soft-bg-3: color-mix(in srgb, var(--mt-primary-container) 40%, var(--mt-surface-dim)) !important;
+
+  /* ── WDS tokens (chrome surfaces, nav bars, chat) ───────────────────── */
+  --WDS-surface-default: var(--mt-soft-bg) !important;
+  --WDS-surface-default-RGB: var(--mt-surface-dim-rgb) !important;
+  --WDS-surface-emphasized: var(--mt-soft-bg-2) !important;
+  --WDS-surface-emphasized-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-surface-elevated-default: var(--mt-soft-bg-2) !important;
+  --WDS-surface-elevated-default-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-surface-elevated-emphasized: var(--mt-soft-bg-3) !important;
+  --WDS-surface-elevated-emphasized-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-background-wash-inset: var(--mt-soft-bg) !important;
+  --WDS-background-wash-inset-RGB: var(--mt-surface-dim-rgb) !important;
+  --WDS-background-wash-plain: var(--mt-soft-bg) !important;
+  --WDS-background-wash-plain-RGB: var(--mt-surface-dim-rgb) !important;
+  --WDS-background-elevated-wash-inset: var(--mt-soft-bg-2) !important;
+  --WDS-background-elevated-wash-inset-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-background-elevated-wash-plain: var(--mt-soft-bg-2) !important;
+  --WDS-background-elevated-wash-plain-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-components-surface-nav-bar: var(--mt-soft-bg-2) !important;
+  --WDS-components-surface-nav-bar-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-components-filter-surface-selected: var(--mt-primary-container) !important;
+  --WDS-components-filter-surface-selected-RGB: var(--mt-primary-rgb) !important;
+  --WDS-components-active-list-row: var(--mt-soft-bg-3) !important;
+  --WDS-components-active-list-row-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-components-outline-profile-photo: var(--mt-outline-variant) !important;
+  --WDS-components-platform-gesture-bar: var(--mt-on-surface-variant) !important;
+  --WDS-components-platform-status-bar: var(--mt-on-surface) !important;
+  --WDS-systems-chat-background-wallpaper: var(--mt-soft-bg) !important;
+  --WDS-systems-chat-background-wallpaper-RGB: var(--mt-surface-dim-rgb) !important;
+  --WDS-systems-chat-foreground-wallpaper: var(--mt-outline-variant) !important;
+  --WDS-systems-chat-foreground-wallpaper-RGB: var(--mt-on-surface-variant-rgb) !important;
+  --WDS-systems-chat-surface-composer: var(--mt-soft-bg-3) !important;
+  --WDS-systems-chat-surface-composer-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-systems-chat-surface-tray: var(--mt-surface-dim) !important;
+  --WDS-systems-chat-surface-tray-RGB: var(--mt-surface-dim-rgb) !important;
+  --WDS-systems-bubble-surface-incoming: color-mix(in srgb, var(--mt-primary-container) 50%, var(--mt-surface-dim)) !important;
+  --WDS-systems-bubble-surface-incoming-RGB: var(--mt-primary-container-rgb) !important;
+  --WDS-systems-bubble-surface-outgoing: var(--mt-primary-container) !important;
+  --WDS-systems-bubble-surface-outgoing-RGB: var(--mt-primary-container-rgb) !important;
+  --WDS-systems-bubble-surface-system: var(--mt-surface-variant) !important;
+  --WDS-systems-bubble-surface-system-RGB: var(--mt-surface-variant-rgb) !important;
+  --WDS-systems-bubble-surface-e2e: var(--mt-surface-variant) !important;
+  --WDS-systems-bubble-surface-e2e-RGB: var(--mt-surface-variant-rgb) !important;
+  --WDS-systems-bubble-surface-business: var(--mt-tertiary-container) !important;
+  --WDS-systems-bubble-surface-business-RGB: var(--mt-tertiary-container-rgb) !important;
+  --WDS-systems-bubble-content-business: var(--mt-on-surface) !important;
+  --WDS-systems-bubble-content-deemphasized: var(--mt-on-surface-variant) !important;
+  --WDS-systems-bubble-content-e2e: var(--mt-on-surface) !important;
+  --WDS-systems-status-seen: var(--mt-on-surface-variant) !important;
+  --WDS-systems-status-seen-RGB: var(--mt-on-surface-variant-rgb) !important;
+
+  /* ── WDS content (text, accents, icons) ─────────────────────────────── */
+  --WDS-content-default: var(--mt-on-surface) !important;
+  --WDS-content-default-RGB: var(--mt-on-surface-rgb) !important;
+  --WDS-content-action-default: var(--mt-on-surface) !important;
+  --WDS-content-action-default-RGB: var(--mt-on-surface-rgb) !important;
+  --WDS-content-action-emphasized: var(--mt-primary) !important;
+  --WDS-content-action-emphasized-RGB: var(--mt-primary-rgb) !important;
+  --WDS-content-deemphasized: var(--mt-on-surface-variant) !important;
+  --WDS-content-deemphasized-RGB: var(--mt-on-surface-variant-rgb) !important;
+  --WDS-content-disabled: var(--mt-outline) !important;
+  --WDS-content-disabled-RGB: var(--mt-on-surface-variant-rgb) !important;
+  --WDS-content-inverse: var(--mt-background) !important;
+  --WDS-content-inverse-RGB: var(--mt-background-rgb) !important;
+  --WDS-content-external-link: var(--mt-tertiary) !important;
+  --WDS-content-external-link-RGB: var(--mt-tertiary-rgb) !important;
+  --WDS-content-on-accent: var(--mt-on-primary) !important;
+  --WDS-content-on-accent-RGB: var(--mt-on-primary-rgb) !important;
+  --WDS-content-read: var(--mt-tertiary) !important;
+  --WDS-content-read-RGB: var(--mt-tertiary-rgb) !important;
+
+  /* ── WDS accent & feedback ───────────────────────────────────────────── */
+  --WDS-accent: var(--mt-primary) !important;
+  --WDS-accent-RGB: var(--mt-primary-rgb) !important;
+  --WDS-accent-emphasized: var(--mt-primary-container) !important;
+  --WDS-accent-emphasized-RGB: var(--mt-primary-rgb) !important;
+  --WDS-accent-deemphasized: var(--mt-primary-container) !important;
+  --WDS-accent-deemphasized-RGB: var(--mt-primary-rgb) !important;
+  --WDS-persistent-activity-indicator: var(--mt-primary) !important;
+  --WDS-persistent-activity-indicator-RGB: var(--mt-primary-rgb) !important;
+  --WDS-persistent-always-branded: var(--mt-primary) !important;
+  --WDS-persistent-always-branded-RGB: var(--mt-primary-rgb) !important;
+  --WDS-persistent-verified: var(--mt-tertiary) !important;
+  --WDS-persistent-verified-RGB: var(--mt-tertiary-rgb) !important;
+  --WDS-persistent-always-white: var(--mt-on-surface) !important;
+  --WDS-persistent-always-white-RGB: var(--mt-on-surface-rgb) !important;
+  --WDS-persistent-always-black: var(--mt-background) !important;
+  --WDS-persistent-always-black-RGB: var(--mt-background-rgb) !important;
+  --WDS-secondary-positive: var(--mt-primary) !important;
+  --WDS-secondary-positive-RGB: var(--mt-primary-rgb) !important;
+  --WDS-secondary-positive-emphasized: var(--mt-on-primary) !important;
+  --WDS-secondary-positive-deemphasized: var(--mt-primary-container) !important;
+  --WDS-secondary-negative: var(--mt-error) !important;
+  --WDS-secondary-negative-RGB: var(--mt-error-rgb) !important;
+  --WDS-secondary-negative-emphasized: var(--mt-on-error) !important;
+  --WDS-secondary-negative-deemphasized: var(--mt-error-container) !important;
+  --WDS-secondary-warning: var(--mt-tertiary) !important;
+  --WDS-secondary-warning-RGB: var(--mt-tertiary-rgb) !important;
+  --WDS-secondary-warning-deemphasized: var(--mt-tertiary-container) !important;
+
+  /* ── WDS lines & surfaces extras (minimalist: sin divisores) ──────────── */
+  --WDS-lines-divider: transparent !important;
+  --WDS-lines-divider-RGB: var(--mt-background-rgb) !important;
+  --WDS-lines-outline-deemphasized: transparent !important;
+  --WDS-lines-outline-deemphasized-RGB: var(--mt-background-rgb) !important;
+  --WDS-lines-outline-default: transparent !important;
+  --WDS-lines-outline-default-RGB: var(--mt-background-rgb) !important;
+  --WDS-components-outline-profile-photo: transparent !important;
+  --WDS-surface-highlight: var(--mt-surface-container) !important;
+  --WDS-surface-highlight-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-surface-pressed: var(--mt-surface-container-high) !important;
+  --WDS-surface-pressed-RGB: var(--mt-surface-container-high-rgb) !important;
+  --WDS-surface-inverse: var(--mt-surface-bright) !important;
+  --WDS-surface-inverse-RGB: var(--mt-on-surface-rgb) !important;
+
+  /* ── App tokens (defined by WA under .dark) ─────────────────────────── */
+  --panel-background: var(--mt-soft-bg) !important;
+  --panel-background-deep: var(--mt-soft-bg) !important;
+  --panel-background-rgb: var(--mt-surface-dim-rgb) !important;
+  --panel-input-background: var(--mt-surface-container-low) !important;
+  --app-background-deeper: var(--mt-soft-bg) !important;
+  --app-background-stripe: var(--mt-soft-bg) !important;
+  --background-default-rgb: var(--mt-surface-dim-rgb) !important;
+  --background-default-hover-rgb: var(--mt-surface-container-high-rgb) !important;
+  --background-document-with-captions: var(--mt-background) !important;
+  --text-primary-strong: var(--mt-on-surface) !important;
+  --text-muted: var(--mt-on-surface-variant) !important;
+  --text-disabled: var(--mt-outline) !important;
+  --text-action: var(--mt-primary) !important;
+  --primary-rgb: var(--mt-on-surface-rgb) !important;
+  --primary-strong-rgb: var(--mt-on-surface-rgb) !important;
+  --secondary-rgb: var(--mt-on-surface-variant-rgb) !important;
+  --message-primary-rgb: var(--mt-on-surface-rgb) !important;
+  --message-selection-highlight: var(--mt-primary-container) !important;
+  --message-placeholder-icon: var(--mt-outline) !important;
+  --icon-high-emphasis: var(--mt-primary) !important;
+  --icon-disabled: var(--mt-outline) !important;
+  --icon-strong-rgb: var(--mt-on-surface-variant-rgb) !important;
+  --link-rgb: var(--mt-tertiary-rgb) !important;
+  --link-alt: var(--mt-primary) !important;
+  --badge-pending: var(--mt-primary) !important;
+  --avatar-background: var(--mt-surface-container) !important;
+  --avatar-border: var(--mt-outline) !important;
+  --avatar-circle-gray-light: var(--mt-surface-container-high) !important;
+  --modal-backdrop-solid: var(--mt-background) !important;
+  --modal-title: var(--mt-on-surface) !important;
+  --overlay: var(--mt-background) !important;
+  --overlay-rgb: var(--mt-background-rgb) !important;
+  --transient-background: var(--mt-background) !important;
+  --compose-panel-background-hover: var(--mt-surface-container) !important;
+  --empty-state-background: var(--mt-surface-container) !important;
+  --empty-state-icon: var(--mt-outline) !important;
+  --pill-background: var(--mt-surface-container) !important;
+  --pill-text: var(--mt-on-surface-variant) !important;
+  --picker-background: var(--mt-surface-container-high) !important;
+  --chip-button-background: var(--mt-surface-container-high) !important;
+  --chip-button-foreground: var(--mt-on-surface) !important;
+  --video-player-background: var(--mt-background) !important;
+  --comments-modal-background: var(--mt-surface-dim) !important;
+  --bot-suggestion-background-color: var(--mt-surface-container) !important;
+  --bot-command-text: var(--mt-tertiary) !important;
+  --notification-biz-background: var(--mt-surface-container) !important;
+  --notification-biz-text: var(--mt-on-surface) !important;
+  --notification-non-e2e-background: var(--mt-surface-container) !important;
+  --notification-non-e2e-text: var(--mt-tertiary) !important;
+  --border-deeper: var(--mt-outline-variant) !important;
+  --block-quote-text: var(--mt-on-surface-variant) !important;
+  --forwarded-indicator-text: var(--mt-on-surface-variant) !important;
+  --status-thumbnail-background: var(--mt-outline) !important;
+  --status-ring-unread: var(--mt-primary) !important;
+  --status-link-preview-title: var(--mt-on-surface) !important;
+  --status-link-preview-secondary: var(--mt-on-surface-variant) !important;
+  --spinner-incoming: var(--mt-on-surface-variant) !important;
+  --spinner-outgoing: var(--mt-on-primary) !important;
+  --progress-background: var(--mt-surface-container-high) !important;
+  --audio-track-incoming: var(--mt-surface-container-high) !important;
+  --audio-track-outgoing: var(--mt-primary-container) !important;
+  --audio-progress-incoming: var(--mt-on-surface-variant) !important;
+  --audio-progress-outgoing: var(--mt-primary) !important;
+  --button-reject-background: var(--mt-surface-container) !important;
+  --button-reject-background-hover: var(--mt-surface-container-high) !important;
+  --button-round-background-inverted: var(--mt-surface-container-high) !important;
+  --drawer-loading-background: var(--mt-scrim) !important;
+  --qc-button-border: var(--mt-outline) !important;
+  --qc-button-border-active: var(--mt-primary) !important;
+  --qc-quantity-label-highlighted-background: var(--mt-primary) !important;
+  --ptt-green: var(--mt-primary) !important;
+  --ptt-gray: var(--mt-on-surface-variant) !important;
+  --ptt-blue: var(--mt-tertiary) !important;
+  --ptt-ooc-background: var(--mt-surface-container-high) !important;
+  --security-icon-background: var(--mt-primary-container) !important;
+  --security-icon-lock: var(--mt-primary) !important;
+  --security-icon-shield: var(--mt-on-primary-container) !important;
+  --media-editor-control-rgb: var(--mt-on-surface-rgb) !important;
+  --media-gallery-thumb-icon: var(--mt-outline) !important;
+  --media-editor-icon-secondary-color: var(--mt-on-surface-variant) !important;
+  --product-thumb-background: var(--mt-surface-container) !important;
+  --product-thumb-background-deeper: var(--mt-surface-container-high) !important;
+  --product-thumb-overlay-text: var(--mt-on-surface) !important;
+  --voip-disabled-background-rgb: var(--mt-surface-dim-rgb) !important;
+  --voip-primary-rgb: var(--mt-on-surface-rgb) !important;
+  --danger-rgb: var(--mt-error-rgb) !important;
+  --suspicious-background: var(--mt-error-container) !important;
+  --payment-status-failed: var(--mt-error) !important;
+  --payment-status-success: var(--mt-primary) !important;
+  --inverse-rgb: var(--mt-on-surface-rgb) !important;
+  --label-disabled-text: var(--mt-on-surface-variant) !important;
+  --label-secondary-text: var(--mt-on-surface-variant) !important;
+  --menu-context-transparent-icon: var(--mt-on-surface-variant) !important;
+  --startup-icon: var(--mt-on-surface-variant) !important;
+  --map-overlay-foreground: var(--mt-on-surface) !important;
+  --map-overlay-background: var(--mt-scrim) !important;
+  --media-inner-border: var(--mt-outline-variant) !important;
+  --media-editor-thumb-border: var(--mt-outline-variant) !important;
+
+  color-scheme: dark !important;
+}
+
+body {
+  background-color: var(--mt-soft-bg) !important;
+}
+
+/* JetBrains Mono — override global (los iconos de WA son SVG, no se rompen) */
+body,
+body * {
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Noto Color Emoji", monospace !important;
+}
+
+::selection {
+  background-color: var(--mt-primary-container) !important;
+  color: var(--mt-on-primary-container) !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--mt-outline);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--mt-outline-variant);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MINIMALIST — sin líneas de separación en chats, listas ni paneles
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#side [role="row"],
+#side > div,
+.two [role="row"],
+main,
+header,
+footer,
+.panel,
+.app,
+[data-testid="chat-list"],
+[data-testid="list-header"],
+[data-testid="chat-header"] {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+}
+
+/* separadores internos de mensajes e items */
+#side *,
+.two * {
+  border-color: transparent !important;
+}
+
+#side [role="row"] + [role="row"]::before,
+[data-testid="chat-list"] > * + *::before {
+  content: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WORDMARK — título "WhatsApp" con tipografía estilo Mr. Robot
+   (oculta el SVG vectorial y lo sustituye por texto fino, condensado y espaciado)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+span[data-testid="wa-wordmark"] > svg {
+  display: none !important;
+}
+
+span[data-testid="wa-wordmark"] {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  min-width: 104px !important;
+  min-height: 28px !important;
+}
+
+span[data-testid="wa-wordmark"]::before {
+  content: "WhatsApp" !important;
+  font-family: 'Barlow Condensed', 'Open Sans Condensed', 'DejaVu Sans Condensed', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 21px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  color: var(--mt-on-surface) !important;
+}
