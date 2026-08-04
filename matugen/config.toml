@@ -303,6 +303,17 @@ output_path = '~/.config/matugen/generated/dusky_sites.css'
 [templates.whatsie]
 input_path  = '~/.config/matugen/templates/whatsie.css'
 output_path = '~/.config/matugen/generated/whatsie.css'
+post_hook   = '''
+  # Recarga la pagina de Whatsie para aplicar el nuevo CSS (Hyprland 0.55+ / Lua dispatch)
+  FOCUSED=$(hyprctl activewindow -j | jq -r '.address // empty')
+  if hyprctl dispatch 'hl.dsp.focus({ window = "class:^(com.ktechpit.whatsie)$" })' >/dev/null 2>&1; then
+    sleep 0.2
+    hyprctl dispatch 'hl.dsp.send_shortcut({ mods = "", key = "F5" })' >/dev/null 2>&1 || :
+    if [ -n "$FOCUSED" ] && [ "$FOCUSED" != "null" ]; then
+      hyprctl dispatch 'hl.dsp.focus({ window = "address:'"$FOCUSED"'" })' >/dev/null 2>&1 || :
+    fi
+  fi
+'''
 
 #=============================================================================
 # 4. System Services & Daemons (Triggered on theme change )
