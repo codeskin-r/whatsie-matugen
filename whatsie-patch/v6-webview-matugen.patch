@@ -1,0 +1,81 @@
+diff --git a/src/web/web_view.cpp b/src/web/web_view.cpp
+index 98ef816..f46b55a 100644
+--- a/src/web/web_view.cpp
++++ b/src/web/web_view.cpp
+@@ -19,8 +19,10 @@
+ #include <QChildEvent>
+ #include <QClipboard>
+ #include <QContextMenuEvent>
++#include <QDir>
+ #include <QDragMoveEvent>
+ #include <QDropEvent>
++#include <QFile>
+ #include <QFont>
+ #include <QFutureWatcher>
+ #include <QJsonDocument>
+@@ -88,6 +90,7 @@ WebView::WebView(core::Settings& settings, core::ThemeService& theme, QWidget* p
+             m_crashPolicy.onLoadSucceeded();
+             applyBlurLive();
+             applyThemeLive();
++            applyMatugenTheme();
+             flushPendingInvite();
+         }
+     });
+@@ -358,6 +361,43 @@ void WebView::applyThemeLive()
+     qCDebug(lcWeb) << "theme pushed to page:" << mode;
+ }
+ 
++// matugen (Material You): re-reads ~/.config/matugen/generated/whatsie.css on
++// every (re)load so a wallpaper-driven theme change is picked up automatically.
++// The CSS is shipped as base64 to avoid any escaping issues with the generated
++// content, then base64-decoded in-page into the whatsie-matugen-theme <style>.
++void WebView::applyMatugenTheme()
++{
++    if (m_page == nullptr) {
++        return;
++    }
++    QFile cssFile(QDir::homePath() + QStringLiteral("/.config/matugen/generated/whatsie.css"));
++    if (!cssFile.open(QIODevice::ReadOnly)) {
++        return;
++    }
++    const QByteArray cssUtf8 = cssFile.readAll();
++    if (cssUtf8.isEmpty()) {
++        return;
++    }
++    const QString cssB64 = QString::fromLatin1(cssUtf8.toBase64());
++    const QString js = QStringLiteral(R"JS(
++(function () {
++    try {
++        var id = 'whatsie-matugen-theme';
++        var el = document.getElementById(id);
++        if (!el) {
++            el = document.createElement('style');
++            el.type = 'text/css';
++            el.id = id;
++            document.head.appendChild(el);
++        }
++        el.textContent = atob('%1');
++    } catch (e) {}
++})();
++)JS").arg(cssB64);
++    m_page->runJavaScript(js, QWebEngineScript::MainWorld);
++    qCDebug(lcWeb) << "matugen theme css injected";
++}
++
+ void WebView::handleProxyAuth(QAuthenticator* authenticator, const QString& proxyHost)
+ {
+     // Use cached credentials if we have them; otherwise ask the UI to prompt
+diff --git a/src/web/web_view.h b/src/web/web_view.h
+index 81fcce2..2e6ce18 100644
+--- a/src/web/web_view.h
++++ b/src/web/web_view.h
+@@ -87,6 +87,9 @@ private:
+     void checkWatchdog();
+     void applyBlurLive();
+     void applyThemeLive();
++    /// Injects the matugen-generated Material You CSS (whatsie.css) into the
++    /// loaded page. Re-runs on every loadFinished so wallpaper changes land.
++    void applyMatugenTheme();
+     void flushPendingInvite();
+     void handleProxyAuth(QAuthenticator* authenticator, const QString& proxyHost);
+     bool maybeHandleDrop(class QObject* watched, class QEvent* event);
